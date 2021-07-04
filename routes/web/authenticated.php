@@ -17,11 +17,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('profile/{id}', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
     Route::put('profile/{id}', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-    Route::post('profile/thumbnail', ['as' => 'profile.thumbnail', 'uses' => 'ProfileController@thumbnail']);
+    Route::post('/user-profile/{id}', 'ProfileController@thumbnail')->name('user.thumbnail');
+
+    /* animals // REBANHO */
+    Route::resource('/animals', 'AnimalController');
 });
 
-/* animals // REBANHO */
+/* animals // REBANHO
 Route::group(['prefix' => 'animals'], function () {
+    Route::resource('/animals', 'AnimalController');
     Route::get('/index', 'AnimalController@index')->name('animals.index');
     Route::get('/create', 'AnimalController@create')->name('animals.create');
     Route::post('/store', 'AnimalController@store')->name('animals.store');
@@ -31,7 +35,7 @@ Route::group(['prefix' => 'animals'], function () {
     Route::get('/destroy/{id}', 'AnimalController@destroy')->name('animals.destroy');
     Route::get('/search', 'AnimalController@search')->name('animals.search');
     Route::get('/reports/all', 'AnimalController@animalsReports')->name('animals.report');
-});
+});*/
 
 Route::group(['prefix' => 'cio'], function () {
     Route::get('/', 'AnimalHeatController@index')->name('cio.index');
@@ -75,3 +79,13 @@ Route::get('/editor', 'EditorController@editor')->name('editor');
 
 
 Route::get('/jquery/editor', 'EditorController@jqueryEditor')->name('jquery-editor');
+
+
+Route::namespace('Admin')
+    ->name('admin.')
+    ->prefix('admin')
+    ->middleware('role:admin')
+    ->group(function (){
+//        Route::get('/farm', 'FarmController');
+//        Route::get('/user/paginate', 'UserController@pagination');
+    });

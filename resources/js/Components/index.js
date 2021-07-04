@@ -1,8 +1,8 @@
 /* Data list filters */
-require('./DataListFilters');
+// require('./DataListFilters');
 
 /* Data lists */
-Vue.component('data-list', require('./DataList.vue').default);
+Vue.component('data-list', require('./Datalists/MainDatalist.vue').default);
 
 /* Breadcrumb */
 Vue.component('breadcrumb', require('./Breadcrumb.vue').default);
@@ -28,6 +28,9 @@ Vue.component('user-data-form', require('./Forms/Profile/form/UserDataForm').def
 Vue.component('user-password-form', require('./Forms/Profile/form/UserPasswordForm').default);
 Vue.component('user-thumbnail-form', require('./Forms/Profile/form/UserThumbnailForm').default);
 Vue.component('image-profile-upload', require('./Forms/Profile/form/uploadImage/ImageProfileUploadModal').default);
+
+/*Animal*/
+Vue.component('animal-form', () => import('./Forms/Animals/AnimalForm').default);
 
 
 /*Extras*/

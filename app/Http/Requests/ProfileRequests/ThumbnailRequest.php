@@ -25,7 +25,9 @@ class ThumbnailRequest extends FormRequest
      */
     public function rules()
     {
-        dd($this->all());
-        return ['thumbnail' => 'nullable|base64dimensions:min_width=100,min_height=200'];
+        return [
+            'path' => 'nullable|base64dimensions:min_width=100,min_height=200',
+            'name' => 'string',
+        ];
     }
 }

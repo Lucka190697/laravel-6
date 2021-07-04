@@ -37,6 +37,7 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'thumbnail' => 'default.jpg',
             'password' => Hash::make($data['password']),
             'farm_id' => null,
         ]);

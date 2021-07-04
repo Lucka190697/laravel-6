@@ -2,15 +2,15 @@
 
 @section('content')
     <layout-header
-        background-img="{{asset('img/cards/user.jpg')}}"
+        background-img="{{$user->thumbnail ? asset('users/' . $user->thumbnail) : asset('img/cards/user.jpg')}}"
         description="{{$description ?? ''}}"
         title="{{ $title }}"
         breadcrumb-header="Usuários"
         breadcrumb-label="@lang('headings._home')">
     </layout-header>
-    <div class="container-fluid mt--9 card-procriare">
+    <div class="container-fluid card-procriare">
         <div class="row">
-            <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+            <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0" style="margin-top: 30% !important;">
                 <user-thumbnail-form
                     :old='@json(old())'
                     :errors="{{$errors}}"
@@ -20,7 +20,7 @@
                     img-url="{{ $user->thumbnail ? asset('users/' . $user->thumbnail) : asset('default.jpg')}}">
                 </user-thumbnail-form>
             </div>
-            <div class="col-xl-8 order-xl-1">
+            <div class="col-xl-8 order-xl-1" style="margin-top: 30% !important;">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">

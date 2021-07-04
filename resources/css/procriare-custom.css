@@ -6,7 +6,7 @@
 
 .index-card-procriare{
   z-index: 100;
-  position: absolute;
+  position: absolute !important;
   margin-block-start: 30% !important;
   margin-block-end: auto !important;
   display: block;
@@ -14,7 +14,7 @@
 
 .index-card-editor{
   z-index: 100;
-  position: fixed;
+  position: relative;
   margin-block-start: 30% !important;
   margin-block-end: auto !important;
   display: block;

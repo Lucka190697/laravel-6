@@ -15,6 +15,7 @@ class User extends JsonResource
     public function toArray($request)
     {
         return [
+            'thumbnail' => $this->thumbnail ? asset('users/' . $this->thumbnail) : asset('default.jpg'),
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,

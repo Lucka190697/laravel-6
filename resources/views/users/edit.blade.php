@@ -8,9 +8,9 @@
         breadcrumb-header="Criar Fazenda"
         breadcrumb-label="@lang('headings._home')">
     </layout-header>
-    <div class="container-fluid mt--7 card-procriare">
+    <div class="container-fluid card-procriare">
         <div class="row">
-            <div class="col">
+            <div class="col" style="margin-top: 30%">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -52,8 +52,8 @@
                             </div>
                         </div>
                     </div>
+                    @include('layouts.footers.auth')
                 </div>
-                @include('layouts.footers.auth')
             </div>
         </div>
     </div>

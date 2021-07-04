@@ -55,7 +55,6 @@ return [
     'Delete' => 'Deletar',
     'Details' => 'Detalhes',
     'Save' => 'Salvar',
-    'Search' => 'Pesquisar',
     'search' => 'pesquisar',
     'Total flock' => 'Rebanho Total',
     'Events' => 'Eventos',
@@ -126,7 +125,6 @@ return [
     //Session
     'Hello' => 'Ola',
     'LogOut' => 'Sair',
-    'Logout' => 'Sair',
     'Login' => 'Entrar',
     'Register' => 'Registrar-se',
     'profile' => 'Perfil',
@@ -143,6 +141,7 @@ return [
 
 
     //flock
+    'herd management' => 'Manejo do Rebanho',
     'flock Managment' => 'Gerenciamento do Rebanho',
     'Manage your animals here. This is your whole herd' =>
         'Gerencie seus animais aqui. Este é todo o seu rebanho',

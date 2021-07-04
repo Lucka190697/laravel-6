@@ -10,22 +10,13 @@
             <i class="fa fa-pencil"></i>
         </button>
     </a>
-
-    <delete-button class="d-inline" :link="item.links.destroy" @deleted="fetchData()">
-        <confirmable
-                class="d-inline"
-                slot-scope="{handleDelete}"
-                title="{{$confirmDeleteTitle ?? 'Excluir registro'}}"
-                message="{{$confirmDeleteMessage ?? 'Tem certeza que deseja apagar este registro?'}}">
-            <a v-if="item.links.destroy"
-               slot-scope="{confirm}"
-               @click="confirm($event, handleDelete)">
-                <button type="button" class="btn btn-sm btn-danger">
-                    <i class="fa fa-trash"></i>
-                </button>
-            </a>
-        </confirmable>
-    </delete-button>
+    <a v-if="item.links.destroy"
+       slot-scope="{confirm}"
+       @click="confirm($event, handleDelete)">
+       <button type="button" class="btn btn-sm btn-danger">
+       <i class="fa fa-trash"></i>
+       </button>
+       </a>
     @if((isset($title)) && ($title == 'book'))
         <a v-if="item.links.reserve" :href="item.links.reserve">
             <button type="button" class="btn btn-sm btn-warning">
@@ -33,5 +24,5 @@
             </button>
         </a>
     @endif
-    @yield('button-actions')
+{{--    @yield('button-actions')--}}
 </div>

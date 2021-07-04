@@ -39,18 +39,18 @@
     </div>
 </div>
 <script>
-    $(function(){
-        var nav = $('.card-procriare');
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 150) {
-                nav.addClass("menu-fixo");
-                $('body').css('padding-top', 70);
-            } else {
-                nav.removeClass("menu-fixo");
-                $('body').css('padding-top', 0);
-            }
-        });
-    });
+    // $(function(){
+    //     var nav = $('.card-procriare');
+    //     $(window).scroll(function () {
+    //         if ($(this).scrollTop() > 150) {
+    //             nav.addClass("menu-fixo");
+    //             $('body').css('padding-top', 70);
+    //         } else {
+    //             nav.removeClass("menu-fixo");
+    //             $('body').css('padding-top', 0);
+    //         }
+    //     });
+    // });
 </script>
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>

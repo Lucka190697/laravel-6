@@ -2,28 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AnimalResource;
+use App\Models\Animal;
+use App\Repositories\AnimalRepository;
+use App\Support\PaginationBuilder;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $repository;
+    protected $resource;
+    private $perPage = 2;
+
+    public function __construct()
     {
-        //
+        $this->model = new Animal();
+        $this->repository = new AnimalRepository();
+//        $this->farm = new Farm();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index()
+    {
+        $title = 'herd management';//manejo de rebanho
+        return view('animals.index', compact('title'));
+    }
+
     public function create()
     {
-        //
+        $title = 'New animal';
+        $description = 'Cadastre o animal com os dados a baixo';
+        return view('animals.create', compact('title', 'description'));
     }
 
     /**
@@ -80,5 +88,15 @@ class AnimalController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pagination()
+    {
+        dd('pagination');
+        $pagination = new PaginationBuilder();
+        return $pagination
+            ->repository($this->repository)
+            ->criteria([  new Where('farm_id', current_user()->farm_id)])
+            ->resource(AnimalResource::class);
     }
 }
